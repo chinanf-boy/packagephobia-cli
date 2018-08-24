@@ -1,0 +1,6 @@
+node_modules
+dist
+.yo-rc.*
+yarn.lock
+.nyc_output
+coverage

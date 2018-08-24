@@ -1,0 +1,76 @@
+{
+	"name": "packagephobia-cli",
+	"version": "0.0.0",
+	"description": "packagephobia of cli",
+	"license": "MIT",
+	"main": "packagephobia-cli.js",
+	"repository": "chinanf-boy/packagephobia-cli",
+	"author": {
+		"name": "chinanf-boy",
+		"email": "865501259@qq.com",
+		"url": "http://llever.com"
+	},
+	"bin": "cli.js",
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "nyc ava -v",
+		"precommit": "lint-staged",
+		"pub": "npm run test && npm run npmUp && npm run git",
+		"npmUp": "npm version patch && npm publish",
+		"git": "git push && git push --tags"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"size-limit": [
+		{
+			"path": "dist/packagephobia-cli.js",
+			"gzip": false
+		}
+	],
+	"lint-staged": {
+		"linters": {
+			"*.{js,json,css,md}": [
+				"prettier --single-quote --trailing-comma es5 --write",
+				"git add"
+			]
+		},
+		"ignore": [
+			"**/dist/*.js"
+		]
+	},
+	"files": [
+		"cli.js",
+		"src",
+		"lib"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"pkg install size"
+	],
+	"dependencies": {
+		"commander": "*",
+		"node-fetch": "^2.2.0",
+		"two-log-min": "*",
+		"yobrave-util": "*"
+	},
+	"devDependencies": {
+		"ava": "^0.25.0",
+		"codecov": "^3.0.2",
+		"husky": "1.0.0-rc.13",
+		"lint-staged": "^7.0.0",
+		"nyc": "^11.8.0",
+		"prettier": "*"
+	},
+	"nyc": {
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	}
+}
