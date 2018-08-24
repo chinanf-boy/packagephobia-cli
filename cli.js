@@ -11,18 +11,18 @@
 		.version(require('./package.json').version, '-v, --version')
 		.usage('<name> [options]')
 		//   .command('dev [targetDir]')
-		.description('say rainbows')
+		.description('show pkg size')
 		.option('-D, --debug [debug]', 'debug: boolean/string ', false);
 
 	// wrapCommand(dev)(path.resolve(dir), { host, port })
 
 	program.on('--help', () => {
 		console.log();
-		console.log(
-			`  Run ${g(
-				`packagephobia-cli --help`
-			)} for detailed usage of given command.`
-		);
+		// console.log(
+		// 	`  Run ${g(
+		// 		`packagephobia-cli --help`
+		// 	)} for detailed usage of given command.`
+		// );
 		console.log();
 	});
 
