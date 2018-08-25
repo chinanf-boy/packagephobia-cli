@@ -12,10 +12,10 @@
 		.version(require('./package.json').version, '-v, --version')
 		.usage('<name> [options]')
 		.description('show pkg size')
-		.option('-D, --debug [debug]', 'debug: boolean/string ', false);
+		.option('-D, --debug [debug]', 'debug: boolean/string ', false)
+		.option('-m, --markdown', 'show the markdown link', false);
 
 	program.on('--help', () => {
-		console.log();
 		console.log();
 	});
 
@@ -61,17 +61,25 @@
 
 	const log = twoLog(program.debug);
 
+	const md = program.markdown;
+	function createMd(n) {
+		return `\n[![install size](https://packagephobia.now.sh/badge?p=${n})](https://packagephobia.now.sh/result?p=${n})\n`;
+	}
+
 	log.start(`Start fetch packagephobia ..${toS(program.args, 0)}`);
 
 	for (let i = 0; i < program.args.length; i++) {
 		await packagephobiaCli(program.args[i])
 			.then(ok => {
 				let { name, pubSize, insSize, version } = ok;
+
+				let mark = createMd(name + version);
+
 				if (pubSize !== '0B' && insSize !== '0B') {
 					log.one(
 						`${name}${g(version)} \nPublish Size:${m(
 							pubSize
-						)} \nInstall Size:${m(insSize)}\n`
+						)} \nInstall Size:${m(insSize)}\n${mark}`
 					);
 				} else {
 					log.one(`${m(name)}${g(version)}  got error size`, {
