@@ -74,7 +74,7 @@
 						)} \nInstall Size:${m(insSize)}\n`
 					);
 				} else {
-					log.one(`${m(name)} got error size`, {
+					log.one(`${m(name)}${g(version)}  got error size`, {
 						end: 'fail',
 					});
 				}

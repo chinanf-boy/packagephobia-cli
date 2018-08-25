@@ -33,8 +33,10 @@ exports = module.exports = async function packagephobiaCli(name, opts) {
 		});
 
 	// get pkg version from website
-	if (name.lastIndexOf('@') > 0) {
-		version = '';
+	let idx = name.lastIndexOf('@');
+	if (idx > 0) {
+		version = name.slice(idx);
+		name = name.slice(0, idx);
 	} else {
 		version = await fetch(`${getVersion}${name}`)
 			.then(res => res.text())
