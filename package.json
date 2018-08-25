@@ -55,6 +55,7 @@
 	],
 	"dependencies": {
 		"commander": "*",
+		"human-size": "^1.1.0",
 		"node-fetch": "^2.2.0",
 		"two-log-min": "*",
 		"yobrave-util": "*"
