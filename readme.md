@@ -1,12 +1,20 @@
 # packagephobia-cli [![Build Status](https://travis-ci.org/chinanf-boy/packagephobia-cli.svg?branch=master)](https://travis-ci.org/chinanf-boy/packagephobia-cli) [![codecov](https://codecov.io/gh/chinanf-boy/packagephobia-cli/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/packagephobia-cli?branch=master)
 
-「 packagephobia of cli 」
+「 cli for packagephobia 」
 
 ## Install
 
 ```
 npm i -g packagephobia-cli
 ```
+
+> or
+
+```
+npx packagephobia-cli
+```
+
+<img width="66%" src="./demo.gif">
 
 ## Usage
 
