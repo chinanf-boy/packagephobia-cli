@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 (async function() {
 	'use strict';
 	const twoLog = require('two-log-min');
@@ -10,19 +11,11 @@
 	program
 		.version(require('./package.json').version, '-v, --version')
 		.usage('<name> [options]')
-		//   .command('dev [targetDir]')
 		.description('show pkg size')
 		.option('-D, --debug [debug]', 'debug: boolean/string ', false);
 
-	// wrapCommand(dev)(path.resolve(dir), { host, port })
-
 	program.on('--help', () => {
 		console.log();
-		// console.log(
-		// 	`  Run ${g(
-		// 		`packagephobia-cli --help`
-		// 	)} for detailed usage of given command.`
-		// );
 		console.log();
 	});
 
@@ -73,26 +66,25 @@
 	for (let i = 0; i < program.args.length; i++) {
 		await packagephobiaCli(program.args[i])
 			.then(ok => {
-				log.one(
-					`${program.args[i]}${g(ok.version)} \nPublish Size:${m(
-						ok.pubSize
-					)} \nInstall Size:${m(ok.insSize)}\n`,
-					{ ora: 'succeed' }
-				);
+				let { name, pubSize, insSize, version } = ok;
+				if (pubSize !== '0B' && insSize !== '0B') {
+					log.one(
+						`${name}${g(version)} \nPublish Size:${m(
+							pubSize
+						)} \nInstall Size:${m(insSize)}\n`
+					);
+				} else {
+					log.one(`${m(name)} got error size`, {
+						end: 'fail',
+					});
+				}
 			})
 			.catch(err => {
-				log.one(r(toS(err.stack)), { ora: 'fail' });
+				log.stop();
+				console.error('\n', r(toS(err.stack)));
 			});
+		i !== program.args.length - 1 && log.text(`fetch ...`);
 	}
 
 	log.stop();
-
-	function wrapCommand(fn) {
-		return (...args) => {
-			return fn(...args).catch(err => {
-				console.error(r(err.stack));
-				process.exitCode = 1;
-			});
-		};
-	}
 })();
