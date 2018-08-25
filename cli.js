@@ -73,7 +73,7 @@
 			.then(ok => {
 				let { name, pubSize, insSize, version } = ok;
 
-				let mark = createMd(name + version);
+				let mark = md ? createMd(name + version) : '';
 
 				if (pubSize !== '0B' && insSize !== '0B') {
 					log.one(
