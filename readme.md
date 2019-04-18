@@ -36,15 +36,15 @@ Install Size:60.7kB
 Can show you the pkg markdown style with install size.
 
 ```bash
-node cli.js express -m
-✔ express4.16.4
+packagephobia-cli express -m
+✔ express@4.16.4
 Publish Size:202 kB
 Install Size:1.54 MB
 
-[![install size](https://packagephobia.now.sh/badge?p=express4.16.4)](https://packagephobia.now.sh/result?p=express4.16.4)
+[![install size](https://packagephobia.now.sh/badge?p=express@4.16.4)](https://packagephobia.now.sh/result?p=express@4.16.4)
 ```
 
-Like this: [![install size](https://packagephobia.now.sh/badge?p=express4.16.4)](https://packagephobia.now.sh/result?p=express4.16.4).
+Like this: [![install size](https://packagephobia.now.sh/badge?p=express@4.16.4)](https://packagephobia.now.sh/result?p=express@4.16.4).
 
 ## cli
 
