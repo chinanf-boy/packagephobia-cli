@@ -37,6 +37,9 @@ Can show you the pkg markdown style with install size.
 
 ```bash
 packagephobia-cli express -m
+```
+
+```
 ✔ express@4.16.4
 Publish Size:202 kB
 Install Size:1.54 MB
