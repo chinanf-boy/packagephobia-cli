@@ -1,6 +1,6 @@
 {
 	"name": "packagephobia-cli",
-	"version": "1.0.5",
+	"version": "2.0.0",
 	"description": "packagephobia of cli",
 	"license": "MIT",
 	"main": "packagephobia-cli.js",
