@@ -1,6 +1,6 @@
-# packagephobia-cli [![Build Status](https://travis-ci.org/chinanf-boy/packagephobia-cli.svg?branch=master)](https://travis-ci.org/chinanf-boy/packagephobia-cli) [![codecov](https://codecov.io/gh/chinanf-boy/packagephobia-cli/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/packagephobia-cli?branch=master) [![install size](https://packagephobia.now.sh/badge?p=packagephobia-cli)](https://packagephobia.now.sh/result?p=packagephobia-cli)
+# packagephobia-cli [![Build Status](https://travis-ci.org/chinanf-boy/packagephobia-cli.svg?branch=master)](https://travis-ci.org/chinanf-boy/packagephobia-cli) [![install size](https://packagephobia.now.sh/badge?p=packagephobia-cli)](https://packagephobia.now.sh/result?p=packagephobia-cli)
 
-「 cli for packagephobia 」
+「 cli for [packagephobia](https://github.com/styfle/packagephobia) 」
 
 ## Install
 
@@ -30,6 +30,21 @@ Install Size:21.1MB
 Publish Size:60.7kB
 Install Size:60.7kB
 ```
+
+### `-m` flag
+
+Can show you the pkg markdown style with install size.
+
+```bash
+node cli.js express -m
+✔ express4.16.4
+Publish Size:202 kB
+Install Size:1.54 MB
+
+[![install size](https://packagephobia.now.sh/badge?p=express4.16.4)](https://packagephobia.now.sh/result?p=express4.16.4)
+```
+
+Like this: [![install size](https://packagephobia.now.sh/badge?p=express4.16.4)](https://packagephobia.now.sh/result?p=express4.16.4).
 
 ## cli
 

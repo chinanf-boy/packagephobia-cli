@@ -52,7 +52,7 @@
 
 	if (!process.argv.slice(2).length) {
 		program.outputHelp(t => {
-			let all = t.split(require('os').EOL);
+			const all = t.split(require('os').EOL);
 			return c(t);
 		});
 		process.exitCode = 1;
@@ -66,18 +66,18 @@
 		return `\n[![install size](https://packagephobia.now.sh/badge?p=${n})](https://packagephobia.now.sh/result?p=${n})\n`;
 	}
 
-	log.start(`Start fetch packagephobia ..${toS(program.args, 0)}`);
+	log.start(`Start fetch packagephobia ..${g(toS(program.args, 0))}`);
 
 	for (let i = 0; i < program.args.length; i++) {
 		await packagephobiaCli(program.args[i])
 			.then(ok => {
-				let { name, pubSize, insSize, version } = ok;
+				const { name, pubSize, insSize, version } = ok;
 
-				let mark = md ? createMd(name + version) : '';
+				const mark = md ? createMd(name + '@' + version) : '';
 
 				if (pubSize !== '0B' && insSize !== '0B') {
 					log.one(
-						`${name}${g(version)} \nPublish Size:${m(
+						`${name}@${g(version)} \nPublish Size:${m(
 							pubSize
 						)} \nInstall Size:${m(insSize)}\n${mark}`
 					);
@@ -91,7 +91,7 @@
 				log.stop();
 				console.error('\n', r(toS(err.stack)));
 			});
-		i !== program.args.length - 1 && log.text(`fetch ...`);
+		i !== program.args.length - 1 && log.text(`fetching ...`);
 	}
 
 	log.stop();

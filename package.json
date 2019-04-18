@@ -15,7 +15,7 @@
 		"node": ">=4"
 	},
 	"scripts": {
-		"test": "nyc ava -v",
+		"test": "nyc ava",
 		"precommit": "lint-staged",
 		"pub": "npm run test && npm run npmUp && npm run git",
 		"npmUp": "npm version patch && npm publish",
@@ -55,7 +55,6 @@
 	],
 	"dependencies": {
 		"commander": "*",
-		"human-size": "^1.1.0",
 		"node-fetch": "^2.2.0",
 		"two-log-min": "*",
 		"yobrave-util": "*"
